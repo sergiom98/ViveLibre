@@ -4,7 +4,8 @@
 
 <p>Consta de autentificación jwt, por lo que hay que registrarse, loggearse y utilizar el token generado para poder acceder en postman a los endpoints de los ejercicios.</p>
 
-<p>Podeís importar el <a href="https://github.com/sergiom98/ViveLibre/blob/main/ViveLibre%20-%20PruebaT%C3%A9cnica.postman_collection.json">json de postman</a> del repositorio para que tengáis más agilidad a la hora de las pruebas</p>
+<p><b><a href="https://github.com/sergiom98/ViveLibre/blob/main/ViveLibre%20-%20openapi3_0.yaml">Documentación Swagger</a></b></p> 
+<p>Podeís importar el <b><a href="https://github.com/sergiom98/ViveLibre/blob/main/ViveLibre%20-%20PruebaT%C3%A9cnica.postman_collection.json">Json de Postman</a></b> del repositorio para que tengáis más agilidad a la hora de las pruebas</p>
 <p>Los únicos endpoitns que están abierto por defecto (el puerto corre en 8081) son:</p> 
 <ul>
   <li><b>/token</b> Para poder llamar a vuestra imagen docker y devolver el token con mensaje satisfacotrio y timestamp de la fecha actual</li>
