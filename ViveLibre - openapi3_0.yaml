@@ -1,0 +1,423 @@
+openapi: 3.0.3
+info:
+  title: ViveLibre - PruebaTécnica
+  description: |-
+      Definición de endpoints y clases necesarias para probar la aplicación.
+
+      - [Repositorio GitHub con el código](https://github.com/sergiom98/ViveLibre/)
+  version: 1.0.11
+
+tags:
+  - name: token
+    description: Llamada token servicio externo
+  - name: auth
+    description: Autentificarte en la aplicación
+  - name: ejercicios
+    description: Ejercicios
+
+paths:
+  /token:
+    post:
+      tags:
+        - token
+      summary: Conectar con servicio externo para recuperar un token, actualizar su timestamp y retornarlo.
+      description: Este endpoint no tiene restricciones de acceso en la llamada.
+      responses:
+        default:
+          description: Token de respuesta generado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: Loggearte en la aplicación para generar el token necesario para el acceso al resto de endpoints
+      description: Este endpoint no tiene restricciones de acceso en la llamada.
+      requestBody:
+        description: Credenciales para autenticación
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginData'
+      responses:
+        default:
+          description: Token de respuesta generado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRespuestaPropio'
+
+  /auth/registro:
+    post:
+      tags:
+        - auth
+      summary: Crear usuario para poder loggearte después
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+      responses:
+        '200':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        default:
+          description: Error en la operación
+
+  /ejercicios/filtrar-libros-mas-400-paginas-contenga-harry:
+    post:
+      tags:
+        - ejercicios
+      summary: Filtrar libros con más de 400 páginas y cuyo título contenga "Harry"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Libro'
+
+  /ejercicios/filtrar-libros-por-nombre-autor/{nombreAutor}:
+    post:
+      tags:
+        - ejercicios
+      summary: Filtrar libros escritos por el autor indicado en el parámetro
+      parameters:
+        - name: nombreAutor
+          in: path
+          description: Nombre del autor a filtrar
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Libro'
+
+  /ejercicios/libros-por-autor-ordenados-alfabeticamente:
+    post:
+      tags:
+        - ejercicios
+      summary: Lista los títulos ordenados alfabéticamente y cuenta cuántos libros ha escrito cada autor.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LibroOrdenadoContador'
+
+  /ejercicios/convertir-timestamp-formato:
+    post:
+      tags:
+        - ejercicios
+      summary: Convierte publicationTimestamp a formato AAAA-MM-DD.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LibroConWordCount'
+
+  /ejercicios/encontrar-libro-con-mas-menos-paginas:
+    post:
+      tags:
+        - ejercicios
+      summary: Calcula el promedio de páginas y devuelve el libro que más se aproxime.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+
+  /ejercicios/agrupar-por-autor-con-word-count:
+    post:
+      tags:
+        - ejercicios
+      summary: Añade un campo wordCount 250 palabras por página y agrupa los libros por autor.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LibroConWordCount'
+
+  /ejercicios/verificar-autores-y-fechas:
+    post:
+      tags:
+        - ejercicios
+      summary: Verifica si hay autores duplicados y encuentra los libros sin publicationTimestamp.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/LibroAutoresFechas'
+
+  /ejercicios/libros-mas-recientes:
+    post:
+      tags:
+        - ejercicios
+      summary: Identifica los libros más recientes.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Libro'
+
+  /ejercicios/exportar-csv:
+    post:
+      tags:
+        - ejercicios
+      summary: Genera un JSON con títulos y autores y exporta la lista a CSV (id, title, author_name, pages).
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Libro'
+      responses:
+        '200':
+          description: Libros filtrados con éxito
+
+components:
+  schemas:
+    Libro:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        title:
+          type: string
+          example: "Título del libro"
+        publicationTimestamp:
+          type: integer
+          format: int64
+          example: 1672531200
+        pages:
+          type: integer
+          format: int32
+          example: 765
+        summary:
+          type: string
+          example: "Resumen del libro"
+        author:
+          $ref: '#/components/schemas/Author'
+
+    Usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100000
+        nombre:
+          type: string
+          example: "Juan Pérez"
+        correo:
+          type: string
+          example: "juan.perez@example.com"
+        password:
+          type: string
+          example: "******"
+
+    Author:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Sergio"
+        firstSurname:
+          type: string
+          example: "González"
+        bio:
+          type: string
+          example: "Autor reconocido por su trabajo en literatura"
+
+    LoginData:
+      type: object
+      properties:
+        correo:
+          type: string
+          example: "prueba@prueba.com"
+        password:
+          type: string
+          example: "******"
+
+    TokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          example: "sadfsadfasd21r2ser123sadf"
+        mensaje:
+          type: string
+          example: "Recibido correctamente"
+        timestamp:
+          type: string
+          example: "2024-03-19T12:34:56Z"
+
+    TokenRespuestaPropio:
+      type: object
+      properties:
+        accessToken:
+          type: string
+          example: "sadfsadfasd21r2ser123sadf"
+
+    LibroAutoresFechas:
+      type: object
+      properties:
+        autoresDuplicados:
+          type: array
+          uniqueItems: true
+          items:
+            type: string
+          example: ["Jkr", "Jose", "Juan"]
+        librosSinFecha:
+          type: array
+          items:
+            $ref: '#/components/schemas/Libro'
+
+    LibroConWordCount:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100
+        title:
+          type: string
+          example: "Titulo"
+        publicationTimestamp:
+          type: integer
+          format: int64
+          example: 100
+        pages:
+          type: integer
+          format: int64
+          example: 100
+        wordCount:
+          type: integer
+          format: int64
+          example: 100
+        summary:
+          type: string
+          example: "Smmary"
+        author:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
+
+    LibroOrdenadoContador:
+      type: object
+      properties:
+        titulosOrdenados:
+          type: array
+          items:
+            type: string
+          example: ["Jkr", "Jose", "Juan"]
+        contadorLibrosPorAutor:
+          type: array
+          items:
+            type: string
+          example: ["Jkr", "Jose", "Juan"]
+
+    LibroOtroFormatoTmst:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 100
+        title:
+          type: string
+          example: "Titulo"
+        publicationTimestamp:
+          type: integer
+          format: int64
+          example: 100
+        pages:
+          type: integer
+          format: int64
+          example: 100
+        summary:
+          type: string
+          example: "Smmary"
+        author:
+          type: array
+          items:
+            $ref: '#/components/schemas/Author'
