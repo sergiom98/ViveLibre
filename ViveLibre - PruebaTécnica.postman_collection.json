@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "9dc9a014-5277-4d23-a2c1-e3d49b87d2ec",
+		"name": "ViveLibre - PruebaTécnica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12748069"
+	},
+	"item": [
+		{
+			"name": "TokenExterno",
+			"item": [
+				{
+					"name": "ResponderTokenExternoConTimestampActual",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Otro\",\r\n    \"correo\": \"otro@email.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/registro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - (GenerarToken)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"packages": {},
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"correo\": \"otro@email.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ej.1 - Filtrar+400paginasContengaHarry Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjQwMTQ2MywiZXhwIjoxNzQyNDA0MDU1fQ.9GlvhMF-QIsrG5RN_qewfbIyiAQoloTLfS3XMEQb59XlFZAW5GgvdSqetm2tLunDVAlf3_fJaEn1BVlsH1NXtw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/filtrar-libros-mas-400-paginas-contenga-harry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"filtrar-libros-mas-400-paginas-contenga-harry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.2 - FiltrarLibrosNombreAutor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/filtrar-libros-por-nombre-autor?nombreAutor=J.K. Rowling",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"filtrar-libros-por-nombre-autor"
+					],
+					"query": [
+						{
+							"key": "nombreAutor",
+							"value": "J.K. Rowling"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.3 - FiltrarLibrosOrdeandosAlfabeticamentePorAutor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/libros-por-autor-ordenados-alfabeticamente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"libros-por-autor-ordenados-alfabeticamente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.4 - ConvertirTmstFormatoYYYYMMDD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/convertir-timestamp-formato",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"convertir-timestamp-formato"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.5 - EncontrarLibroPaginasPromedio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/encontrar-libro-con-mas-menos-paginas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"encontrar-libro-con-mas-menos-paginas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.6 - AgruparPorAutorConNuevoCampoWordCount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/agrupar-por-autor-con-word-count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"agrupar-por-autor-con-word-count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.7 - VerificarAutoresDuplicadosYLibrosSinFecha",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/verificar-autores-y-fechas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"verificar-autores-y-fechas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.8 - IdentificarLibrosMasRecientes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/libros-mas-recientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"libros-mas-recientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ej.9 - ExportarLibrosCSV",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJ2aXZlTGlicmUiLCJzdWIiOiJPdHJvIiwiY29ycmVvIjoib3Ryb0BlbWFpbC5jb20iLCJpZCI6MSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0MjM0MzM1OCwiZXhwIjoxNzQyMzQ1OTUwfQ.YGWTEFdPs0CnZji24v1ikiBKqynNGo0iCUIvt3tKCd84dJ_Aa9RPzUEKfBy1MaOWeDrtHaImiDI7fEKcR63WKg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/ejercicios/exportar-csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"ejercicios",
+						"exportar-csv"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ej.8 - IdentificarLibrosMasRecientes Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\r\n    \"id\": 1,\r\n    \"title\": \"The Hunger Games\",\r\n    \"pages\": 374,\r\n    \"summary\":\"Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love\",\r\n    \"author\": {\r\n        \"name\": \"Suzanne\",\r\n        \"firstSurname\": \"Collins\",\r\n        \"bio\": \"Since 1991, Suzanne Collins has been busy writing for children’s television. She has worked on the staffs of several Nickelodeon shows, including the Emmy-nominated hit Clarissa Explains it All and The Mystery Files of Shelby Woo\"\r\n    }\r\n},\r\n{\r\n    \"id\": 2,\r\n    \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n    \"publicationTimestamp\": \"867308140\",\r\n    \"pages\": 309,\r\n    \"summary\":\"Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified Harry will learn that he's really a wizard, just as his parents were. But everything changes when Harry is summoned to attend an infamous school for wizards, and he begins to discover some clues about his illustrious birthright\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 3,\r\n    \"title\": \"The Help\",\r\n    \"publicationTimestamp\": \"1234252540\",\r\n    \"pages\": 464,\r\n    \"summary\":\"Twenty-two-year-old Skeeter has just returned home after graduating from Ole Miss. She may have a degree, but it is 1962, Mississippi, and her mother will not be happy till Skeeter has a ring on her finger. Skeeter would normally find solace with her beloved maid Constantine, the woman who raised her, but Constantine has disappeared and no one will tell Skeeter where she has gone.\",\r\n    \"author\": {\r\n        \"name\": \"Kathryn\",\r\n        \"firstSurname\": \"Stockett\",\r\n        \"bio\": \"Kathryn Stockett was born and raised in Jackson, Mississippi. After graduating from the University of Alabama with a degree in English and creative writing, she moved to New York City, where she worked in magazine publishing for nine years. She currently lives in Atlanta with her husband and daughter. She is working on her second novel.\"\r\n    }\t\r\n},\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"To Kill a Mockingbird\",\r\n    \"pages\": 336,\r\n    \"summary\":\"The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. To Kill A Mockingbird became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.\",\r\n    \"author\": {\r\n        \"name\": \"Harper\",\r\n        \"firstSurname\": \"Lee\",\r\n        \"bio\": \"Harper Lee, known as Nelle, was born in the Alabama town of Monroeville, the youngest of four children of Amasa Coleman Lee and Frances Cunningham Finch Lee. Her father, a former newspaper editor and proprietor, was a lawyer who served on the state legislature from 1926 to 1938. As a child, Lee was a tomboy and a precocious reader, and enjoyed the friendship of her schoolmate and neighbor, the young Truman Capote.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 5,\r\n    \"title\": \"Harry Potter and the Deathly Hallows\",\r\n    \"publicationTimestamp\": \"1185000940\",\r\n    \"pages\": 759,\r\n    \"summary\":\"Harry has been burdened with a dark, dangerous and seemingly impossible task: that of locating and destroying Voldemort's remaining Horcruxes. Never has Harry felt so alone, or faced a future so full of shadows. But Harry must somehow find within himself the strength to complete the task he has been given. He must leave the warmth, safety and companionship of The Burrow and follow without fear or hesitation the inexorable path laid out for him...\",\r\n    \"author\": {\r\n        \"name\": \"J.K. Rowling\",\r\n        \"bio\": \"Although she writes under the pen name J.K. Rowling, pronounced like rolling, her name when her first Harry Potter book was published was simply Joanne Rowling. Anticipating that the target audience of young boys might not want to read a book written by a woman, her publishers demanded that she use two initials, rather than her full name\"\r\n    }\r\n},\r\n{\r\n    \"id\": 6,\r\n    \"title\": \"The Kite Runner\",\r\n    \"publicationTimestamp\": \"1041407740\",\r\n    \"pages\": 371,\r\n    \"summary\":\"1970s Afghanistan: Twelve-year-old Amir is desperate to win the local kite-fighting tournament and his loyal friend Hassan promises to help him. But neither of the boys can foresee what would happen to Hassan that afternoon, an event that is to shatter their lives. After the Russians invade and the family is forced to flee to America, Amir realises that one day he must return to an Afghanistan under Taliban rule to find the one thing that his new world cannot grant him: redemption.\",\r\n    \"author\": {\r\n        \"name\": \"Khaled\",\r\n        \"firstSurname\": \"Hosseini\",\r\n        \"bio\": \"Hosseini was born in Kabul, Afghanistan, in 1965. In 1970 Hosseini and his family moved to Iran where his father worked for the Embassy of Afghanistan in Tehran. In 1973 Hosseini's family returned to Kabul, and Hosseini's youngest brother was born in July of that year. In 1976, when Hosseini was 11 years old, Hosseini's father obtained a job in Paris, France, and moved the family there\"\r\n    }\r\n},\r\n{\r\n    \"id\": 7,\r\n    \"title\": \"The Stand\",\r\n    \"publicationTimestamp\": \"252489340\",\r\n    \"pages\": 1152,\r\n    \"summary\":\"First came the days of the plague. Then came the dreams. Dark dreams that warned of the coming of the dark man. The apostate of death, his worn-down boot heels tramping the night roads. The warlord of the charnel house and Prince of Evil. His time is at hand. His empire grows in the west and the Apocalypse looms.\",\r\n    \"author\": {\r\n        \"name\": \"Stephen\",\r\n        \"firstSurname\": \"King\",\r\n        \"bio\": \"Stephen Edwin King was born the second son of Donald and Nellie Ruth Pillsbury King. After his father left them when Stephen was two, he and his older brother, David, were raised by his mother. Parts of his childhood were spent in Fort Wayne, Indiana, where his father's family was at the time, and in Stratford, Connecticut. When Stephen was eleven, his mother brought her children back to Durham, Maine, for good. Her parents, Guy and Nellie Pillsbury, had become incapacitated with old age, and Ruth King was persuaded by her sisters to take over the physical care of them. Other family members provided a small house in Durham and financial support. After Stephen's grandparents passed away, Mrs. King found work in the kitchens of Pineland, a nearby residential facility for the mentally challenged.\"\r\n    }\r\n},\r\n{\r\n    \"id\": 8,\r\n    \"title\": \"Life of Pi\",\r\n    \"publicationTimestamp\": \"1000191340\",\r\n    \"pages\": 460,\r\n    \"summary\":\"Life of Pi is a fantasy adventure novel by Yann Martel published in 2001. The protagonist, Piscine Molitor Pi Patel, a Tamil boy from Pondicherry, explores issues of spirituality and practicality from an early age. He survives 227 days after a shipwreck while stranded on a boat in the Pacific Ocean with a Bengal tiger named Richard Parker.\",\r\n    \"author\": {\r\n        \"name\": \"Yann\",\r\n        \"firstSurname\": \"Martel\",\r\n        \"bio\": \"Yann Martel is the author of Life of Pi, the #1 international bestseller and winner of the 2002 Man Booker (among many other prizes). He is also the award-winning author of The Facts Behind the Helsinki Roccamatios (winner of the Journey Prize), Self, Beatrice & Virgil, and 101 Letters to a Prime Minister. Born in Spain in 1963, Martel studied philosophy at Trent University, worked at odd jobs—tree planter, dishwasher, security guard—and traveled widely before turning to writing. He lives in Saskatoon, Canada, with the writer Alice Kuipers and their four children.\"\r\n    }\r\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/ejercicios/exportar-csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"ejercicios",
+								"exportar-csv"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=libros_exportados.csv"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "304"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 16 Mar 2025 23:35:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "id,title,author_name,pages\n1,The Hunger Games,Suzanne,374\n2,Harry Potter and the Sorcerer's Stone,J.K. Rowling,309\n3,The Help,Kathryn,464\n4,To Kill a Mockingbird,Harper,336\n5,Harry Potter and the Deathly Hallows,J.K. Rowling,759\n6,The Kite Runner,Khaled,371\n7,The Stand,Stephen,1152\n8,Life of Pi,Yann,460"
+				}
+			]
+		}
+	]
+}
